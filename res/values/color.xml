@@ -1,0 +1,14 @@
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="light_background">#FFFFCC</color>
+    <color name="transparent">#00000000</color> 
+    
+    <color name="notification_green">#55BE8C</color> 
+    <color name="notification_blue">#233A85</color> 
+    <color name="notification_yellow">#F9F000</color> 
+    <color name="notification_red">#ED1E24</color> 
+                    
+    <color name="custom_notification_background">#990033</color>
+    
+</resources>

@@ -1,0 +1,133 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/topLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_background"
+    tools:context=".DropdownNotificationDemo" >
+
+	<LinearLayout 
+	    android:id="@+id/linearLayout1"
+		android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="vertical"
+    	android:layout_alignParentTop="true"
+    	android:layout_marginTop="50dip"
+    	android:gravity="center_horizontal">
+	    
+		<LinearLayout 
+			android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:orientation="horizontal"
+	    	android:gravity="center_horizontal">
+		    
+		   	<Button 
+		        android:id="@+id/noteButton"
+	            android:layout_width="150dip"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="10dip"
+	            android:layout_marginRight="20dip"
+	            android:onClick="onNote"
+	            android:text="@string/note_button"
+	            style="@android:style/TextAppearance.Large"
+		        />
+		    
+		    <Button 
+		        android:id="@+id/infoButton"
+	            android:layout_width="150dip"
+	            android:layout_height="wrap_content"
+	            android:layout_marginRight="10dip"
+	            android:onClick="onInfo"
+	            android:text="@string/info_button"
+	            style="@android:style/TextAppearance.Large"
+		        />
+		    
+	    </LinearLayout>
+	    
+		<LinearLayout 
+			android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:orientation="horizontal"
+	    	android:gravity="center_horizontal">
+		    		    
+		    <Button 
+		        android:id="@+id/warningButton"
+	            android:layout_width="150dip"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="10dip"
+	            android:layout_marginRight="20dip"
+	            android:onClick="onWarning"
+	            android:text="@string/warning_button"
+	            style="@android:style/TextAppearance.Large"
+		        />
+		    
+		    <Button 
+		        android:id="@+id/errorButton"
+	            android:layout_width="150dip"
+	            android:layout_height="wrap_content"
+	            android:layout_marginRight="10dip"
+	            android:onClick="onError"
+	            android:text="@string/error_button"
+	            style="@android:style/TextAppearance.Large"
+		        />
+		    
+	    </LinearLayout>
+	    
+		<LinearLayout 
+			android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:orientation="horizontal"
+	    	android:gravity="center">
+		    
+		    <Button 
+		        android:id="@+id/customButton"
+	            android:layout_width="150dip"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="10dip"
+	            android:layout_marginRight="20dip"
+	            android:onClick="onCustom"
+	            android:text="@string/custom_button"
+	            style="@android:style/TextAppearance.Large"
+		        />
+				    
+		    <Button 
+		        android:id="@+id/internalButton"
+	            android:layout_width="150dip"
+	            android:layout_height="wrap_content"
+	            android:layout_marginRight="10dip"
+	            android:onClick="onInternal"
+	            android:text="@string/internal_button"
+	            style="@android:style/TextAppearance.Large"
+		        />
+		    
+	    </LinearLayout>
+	    
+	    
+	</LinearLayout>
+	
+	<RelativeLayout 
+	    android:id="@+id/internalLayout"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center_horizontal"
+	    android:layout_below="@id/linearLayout1"
+	    android:layout_alignParentBottom="true"
+	    android:background="@color/notification_green"
+	    android:layout_margin="20dip"
+	    >
+	
+	    <TextView 
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:gravity="center"
+		    android:layout_below="@id/linearLayout1"
+		    android:layout_alignParentBottom="true"
+		    android:textColor="@color/black"
+		    style="@android:style/TextAppearance.Large"
+		    android:text="@string/internal_text"
+		    android:layout_margin="10dip"
+	        />
+	    
+	</RelativeLayout>
+	
+</RelativeLayout>

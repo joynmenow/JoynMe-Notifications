@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Joynme Notifications Demo</string>
+    <string name="menu_settings">Settings</string>
+    
+    <string name="ok">OK</string>
+    
+    <string name="note_button">Note</string>
+    <string name="note_title">Note Notification</string>
+    <string name="note_message">Sample note notification</string>
+        
+    <string name="info_button">Info</string>
+    <string name="info_title">Info Notification</string>
+    <string name="info_message">Sample info notification</string>
+        
+    <string name="warning_button">Warning</string>
+    <string name="warning_title">Warning Notification</string>
+    <string name="warning_message">Sample warning notification</string>
+        
+    <string name="error_button">Error</string>
+    <string name="error_title">Error Notification</string>
+    <string name="error_message">Sample error notification</string>
+        
+    <string name="custom_button">Custom</string>
+    <string name="custom_title">Custom Notification</string>
+    <string name="custom_message1">1. You can Tap this notification</string>
+    <string name="custom_message2">2. You can also Swipe notification</string>
+    
+    <string name="internal_button">Internal</string>
+    <string name="internal_title">Info Notification</string>
+    <string name="internal_message">You can also show notifications here</string>
+    <string name="internal_text">Tap on buttons to see notification examples.\n\nYou can also show notifications in any RelativeLayout component, not just in the top layout.</string>
+    
+    <string name="custom_tap_title">Tap Action</string>
+    <string name="custom_tap_message">You Tapped the Notification</string>
+    
+    <string name="custom_swipe_title">Swipe Action</string>
+    <string name="custom_swipe_message">You Swipped the Notification</string>
+    
+</resources>

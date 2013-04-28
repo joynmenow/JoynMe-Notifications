@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.joynme.utils.dropdown.NotificationLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:gravity="center_vertical"
+  android:background="@color/notification_green"
+  android:paddingLeft="5dip"
+  android:paddingTop="5dip"
+  android:paddingRight="5dip"
+  android:paddingBottom="5dip">
+    
+    <ImageView
+      android:id="@+id/image"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentLeft="true"
+      android:layout_centerVertical="true"
+      android:src="@drawable/dropdown_note"
+      android:layout_marginRight="5dip" />
+    
+    <TextView
+      android:id="@+id/ddTitle"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentTop="true"
+      android:layout_alignParentRight="true"
+      android:layout_toRightOf="@id/image"
+      android:layout_alignWithParentIfMissing="true"
+      style="@android:style/TextAppearance.Large"
+      android:textStyle="bold"
+      android:padding="5dip"
+      android:textColor="@color/white" />
+      
+    <TextView
+      android:id="@+id/ddDetail"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentRight="true"
+      android:layout_toRightOf="@id/image"
+      android:layout_below="@id/ddTitle"
+      android:singleLine="false"
+      style="@android:style/TextAppearance.Medium"
+      android:textColor="@color/white"
+      android:padding="5dip"
+      android:ellipsize="marquee" />
+    
+</com.joynme.utils.dropdown.NotificationLayout>

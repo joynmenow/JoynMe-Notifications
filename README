@@ -1,0 +1,31 @@
+ JoynmeNotifications as a small utility package that shows dropdown notifications on Android devices. 
+ 
+ This project is part of JoynMe utility classes. We plan to continue to develop, maintain, fix bugs, 
+ and accept contributions for this project. Try it and if you like it also try our JoynMe app or visit 
+ us at at http://joynme.com
+ 
+ JoynmeNotificationDemo class provides examples of various uses of the JoynmeNotifications package 
+  
+ NotificationViewFactory is main factory class that is used to show dropdown notifications.
+ 
+ Notification is shown at the top of the provided parent component (must be RelativeLayout).
+ After notification hides back it removes itself from the parent so you don't have 
+ to worry about the cleanup. 
+  
+ There are two ways to show notification:
+  
+     1. By providing predefined notification type: INFO_NOTIFICATION, WARNING_NOTIFICATION, etc.
+     
+     2. By providing custom notification component (must be of NotificationLayout class).
+        NotificationLayout is just a subclass of RelativeLayout, see for example
+        res/layout/dropdown_custom_layout.xml
+  
+ You can also provide optional OnTapListener and/or OnSwipeListener to handle cases when 
+ some non-trivial action is needed when user Taps or Swipes notification panel. Default 
+ actions for Tap and Swipe are to immediately hide notification.
+
+
+ CREDITS:
+ 
+ To support animation in Android releases prior to 3.0 (Version 11) JoynmeNotifications
+ package uses NineOldAndroids library ( http://nineoldandroids.com )
