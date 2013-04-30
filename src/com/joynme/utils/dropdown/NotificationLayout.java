@@ -64,10 +64,10 @@ public class NotificationLayout extends RelativeLayout implements NotificationVi
 					originX = x;
 					originY = y;
 				} else if (action == MotionEvent.ACTION_UP) {
-					float length = (originX - x)*(originX - x) + (originY - y)*(originY - y);
+					float length = (x - originX)*(x - originX) + (y - originY)*(y - originY);
 					if (length > swipeMin_) {
 						finish();
-						if (onSwipeListener_ != null) onSwipeListener_.onSwipe(event, originX - x, originY - y);
+						if (onSwipeListener_ != null) onSwipeListener_.onSwipe(event, x - originX, y - originY);
 					} else {
 						finish();
 						if (onTapListener_ != null) onTapListener_.onTap(event);
