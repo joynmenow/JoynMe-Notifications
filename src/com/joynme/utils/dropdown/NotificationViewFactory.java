@@ -118,16 +118,10 @@ public class NotificationViewFactory {
 	public static void showNotification(RelativeLayout parent, NotificationLayout notification, 
 				long animationDuration, long notificationDuration, OnTapListener onTapListener, OnSwipeListener onSwipeListener) {
 
-		// We need to delegate to different classes for different Android versions  
-		// here to avoid "Class not found" messages during execution
-		
-		if (Build.VERSION.SDK_INT >= 11) {
-			NotificationViewFactoryPostV11.showNotification(parent, notification, 
-					animationDuration, notificationDuration, onTapListener, onSwipeListener);
-		} else {
-			NotificationViewFactoryPreV11.showNotification(parent, notification, 
-					animationDuration, notificationDuration, onTapListener, onSwipeListener);
-		}
+		// Delegate to NotificationViewFactoryPreV11 class here, which uses NineOldAndroids library
+		// to support all versions, pre- and post- 3.0
+		NotificationViewFactoryPreV11.showNotification(parent, notification, 
+				animationDuration, notificationDuration, onTapListener, onSwipeListener);
 		
 	}
 			

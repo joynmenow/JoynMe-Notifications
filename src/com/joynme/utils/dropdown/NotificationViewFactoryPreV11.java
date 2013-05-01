@@ -7,7 +7,8 @@ import android.widget.RelativeLayout;
 
 /**
  * Hidden Factory class that handles dropdown notifications for Android versions prior to 3.0.
- * Before Android 3.0 we need use NineOldAndroids library for backwards support
+ * Before Android 3.0 we need use NineOldAndroids library for backwards support.
+ * Actually NineOldAndroids library supports all versions, pre- and post- 3.0 so just use it here
  * 
  * @author Victor Serbo (victor.serbo@joynme.com)
  *

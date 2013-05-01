@@ -107,14 +107,11 @@ public class NotificationLayout extends RelativeLayout implements NotificationVi
 
 	public void finish() {
 		NotificationViewFactory.printDebug("NotificationView", "finish");
-		if (Build.VERSION.SDK_INT >= 11) {
-			NotificationViewFactoryPostV11.cancelAnimation(objectAnimator2_);
-			NotificationViewFactoryPostV11.startAnimation(objectAnimator3_);
-		} else {
-			NotificationViewFactoryPreV11.cancelAnimation(objectAnimator2_);
-			NotificationViewFactoryPreV11.startAnimation(objectAnimator3_);
-		}
-		
+
+		// Delegate to NotificationViewFactoryPreV11 class here, which uses NineOldAndroids library
+		// to support all versions, pre- and post- 3.0
+		NotificationViewFactoryPreV11.cancelAnimation(objectAnimator2_);
+		NotificationViewFactoryPreV11.startAnimation(objectAnimator3_);
 	}
 
 	public void setSwipeMinimum(float swipeMin) {
