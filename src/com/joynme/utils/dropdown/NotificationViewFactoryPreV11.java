@@ -6,9 +6,8 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.RelativeLayout;
 
 /**
- * Hidden Factory class that handles dropdown notifications for Android versions prior to 3.0.
- * Before Android 3.0 we need use NineOldAndroids library for backwards support.
- * Actually NineOldAndroids library supports all versions, pre- and post- 3.0 so just use it here
+ * Hidden Factory class that handles dropdown notifications for all current versions of Android.
+ * In the future we might need to delegate to different classes for different Android versions.
  * 
  * @author Victor Serbo (victor.serbo@joynme.com)
  *
@@ -17,13 +16,16 @@ class NotificationViewFactoryPreV11 {
 
 		
 	static void showNotification(RelativeLayout parent, NotificationLayout notification, 
-				long animationDuration, long notificationDuration, OnTapListener onTapListener, OnSwipeListener onSwipeListener) {
+				long animationDuration, long notificationDuration, OnTapListener onTapListener, 
+				OnSwipeListener onSwipeListener, OnDoneListener onDoneListener) {
 
         final RelativeLayout finalParent = parent;
         
         if (onTapListener != null) notification.setOnTapListener(onTapListener);
         
         if (onSwipeListener != null) notification.setOnSwipeListener(onSwipeListener);
+        
+        if (onDoneListener != null) notification.setOnDoneListener(onDoneListener);
         
         final NotificationLayout nl = notification;
         
@@ -96,6 +98,7 @@ class NotificationViewFactoryPreV11 {
 				
 				nl.setVisibility(View.GONE);
 				finalParent.removeView(nl);
+				nl.runOnDoneAction();
 			}
 
 			public void onAnimationRepeat(com.nineoldandroids.animation.Animator arg0) {
@@ -118,6 +121,7 @@ class NotificationViewFactoryPreV11 {
 				NotificationViewFactory.printDebug("PreV11", "onAnimationEnd3");
 				nl.setVisibility(View.GONE);
 				finalParent.removeView(nl);
+				nl.runOnDoneAction();
 			}
 
 			public void onAnimationRepeat(com.nineoldandroids.animation.Animator arg0) {

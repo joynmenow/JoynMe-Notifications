@@ -1,4 +1,9 @@
-package com.joynme.utils.dropdown;
+package com.example;
+
+import com.joynme.utils.dropdown.NotificationLayout;
+import com.joynme.utils.dropdown.NotificationViewFactory;
+import com.joynme.utils.dropdown.OnSwipeListener;
+import com.joynme.utils.dropdown.OnTapListener;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -37,25 +42,25 @@ public class JoynmeNotificationDemo extends Activity {
 
 
 	public void onNote(View view) {
-		NotificationViewFactory.showNotification(topLayout_, NotificationViewFactory.NOTE_NOTIFICATION, 
+		NotificationHelper.showNotification(topLayout_, NotificationHelper.NOTE_NOTIFICATION, 
 				res_.getString(R.string.note_title), res_.getString(R.string.note_message));
 	}
 	
 	
 	public void onInfo(View view) {
-		NotificationViewFactory.showNotification(topLayout_, NotificationViewFactory.INFO_NOTIFICATION, 
+		NotificationHelper.showNotification(topLayout_, NotificationHelper.INFO_NOTIFICATION, 
 				res_.getString(R.string.info_title), res_.getString(R.string.info_message));
 	}
 	
 	
 	public void onWarning(View view) {
-		NotificationViewFactory.showNotification(topLayout_, NotificationViewFactory.WARNING_NOTIFICATION, 
+		NotificationHelper.showNotification(topLayout_, NotificationHelper.WARNING_NOTIFICATION, 
 				res_.getString(R.string.warning_title), res_.getString(R.string.warning_message));
 	}
 	
 	
 	public void onError(View view) {
-		NotificationViewFactory.showNotification(topLayout_, NotificationViewFactory.ERROR_NOTIFICATION, 
+		NotificationHelper.showNotification(topLayout_, NotificationHelper.ERROR_NOTIFICATION, 
 				res_.getString(R.string.error_title), res_.getString(R.string.error_message));
 	}
 	
@@ -123,17 +128,17 @@ public class JoynmeNotificationDemo extends Activity {
 				return true;
 			}};
 			
-        // Show custom component with both listeners 
+        // Show custom component with two listeners 
 			NotificationViewFactory.showNotification(topLayout_, customComponent, 
-        		NotificationViewFactory.animationDuration, 
-        		NotificationViewFactory.notificationErrorDuration, 
-        		onTapListener, onSwipeListener);
+					NotificationHelper.animationDuration, 
+					NotificationHelper.notificationErrorDuration, 
+        		onTapListener, onSwipeListener, null);
 	}
 	
 	
 	
 	public void onInternal(View view) {
-		NotificationViewFactory.showNotification(internalLayout_, NotificationViewFactory.INFO_NOTIFICATION, 
+		NotificationHelper.showNotification(internalLayout_, NotificationHelper.INFO_NOTIFICATION, 
 				res_.getString(R.string.internal_title), res_.getString(R.string.internal_message));
 	}
 	

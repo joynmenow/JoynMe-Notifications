@@ -3,7 +3,7 @@ package com.joynme.utils.dropdown;
 import android.view.MotionEvent;
 
 /**
- * Interface to handle tapping on notification
+ * Interface to handle tapping on notification view
  * 
  * @author Victor Serbo (victor.serbo@joynme.com)
  *

@@ -1,7 +1,6 @@
 package com.joynme.utils.dropdown;
 
 import android.content.Context;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -9,17 +8,21 @@ import android.widget.RelativeLayout;
 
 /**
  * All notification components must be of that class (NotificationLayout),
- * or be descendants of that class.
+ * or be descendants of that class. Just RelatedLayout with some extra features.
  * 
  * @author Victor Serbo (victor.serbo@joynme.com)
  *
  */
 public class NotificationLayout extends RelativeLayout implements NotificationView {
 
-	/** Minimal length of swipe - anything less is considered just tap */
-	protected float swipeMin_;
+	/** Default Minimal length of swipe */
+	static final float DEFAULT_SWIPE_MIN = 50;
+
+	/** Current Minimal length of swipe - anything less is considered just a tap */
+	protected float swipeMin2_;
 	protected OnTapListener onTapListener_;
 	protected OnSwipeListener onSwipeListener_;
+	protected OnDoneListener onDoneListener_;
 	protected Object objectAnimator1_;
 	protected Object objectAnimator2_;
 	protected Object objectAnimator3_;
@@ -46,8 +49,8 @@ public class NotificationLayout extends RelativeLayout implements NotificationVi
 	void setObjectAnimator3(Object objectAnimator) { objectAnimator3_ = objectAnimator; }
 	
 	protected void initNotificationView() {
-		// Set minimum Swipe length at 50
-		setSwipeMinimum(50);
+		// Set minimum Swipe length to Default
+		setSwipeMinimum(DEFAULT_SWIPE_MIN);
 		
 		// Set default OnTouchListener
 		OnTouchListener onTouch = new OnTouchListener() {
@@ -65,7 +68,7 @@ public class NotificationLayout extends RelativeLayout implements NotificationVi
 					originY = y;
 				} else if (action == MotionEvent.ACTION_UP) {
 					float length = (x - originX)*(x - originX) + (y - originY)*(y - originY);
-					if (length > swipeMin_) {
+					if (length > swipeMin2_) {
 						finish();
 						if (onSwipeListener_ != null) onSwipeListener_.onSwipe(event, x - originX, y - originY);
 					} else {
@@ -84,7 +87,6 @@ public class NotificationLayout extends RelativeLayout implements NotificationVi
 			@Override
 			public boolean onSwipe(MotionEvent event, float deltaX, float deltaY) {
 				NotificationViewFactory.printDebug("NotificationView", "onSwipe");
-				finish();
 				return true;
 			}
 		};
@@ -94,7 +96,8 @@ public class NotificationLayout extends RelativeLayout implements NotificationVi
 	
 	@Override
 	public void setOnTouchListener(OnTouchListener l) {
-		// do nothing here - can not change default listener
+		// do nothing here - can not change the default listener 
+		// which handles OnTap and OnSwipe functionality
 	}
 
 	public void setOnTapListener(OnTapListener l) {
@@ -105,17 +108,28 @@ public class NotificationLayout extends RelativeLayout implements NotificationVi
 		onSwipeListener_ = l;
 	}
 
+	public void setOnDoneListener(OnDoneListener l) {
+		onDoneListener_ = l;
+	}
+
 	public void finish() {
 		NotificationViewFactory.printDebug("NotificationView", "finish");
-
+		
 		// Delegate to NotificationViewFactoryPreV11 class here, which uses NineOldAndroids library
 		// to support all versions, pre- and post- 3.0
 		NotificationViewFactoryPreV11.cancelAnimation(objectAnimator2_);
 		NotificationViewFactoryPreV11.startAnimation(objectAnimator3_);
+		
 	}
 
 	public void setSwipeMinimum(float swipeMin) {
-		swipeMin_ = swipeMin * swipeMin;
+		swipeMin2_ = swipeMin * swipeMin;
+	}
+	
+	void runOnDoneAction() {
+		if (onDoneListener_ != null) {
+			onDoneListener_.onDone();
+		}
 	}
 	
 }

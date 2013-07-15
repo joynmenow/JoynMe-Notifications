@@ -12,19 +12,29 @@
  After notification hides back it removes itself from the parent so you don't have 
  to worry about the cleanup. 
   
- There are two ways to show notification:
-  
-     1. By providing predefined notification type: INFO_NOTIFICATION, WARNING_NOTIFICATION, etc.
-     
-     2. By providing custom notification component (must be of NotificationLayout class).
-        NotificationLayout is just a subclass of RelativeLayout, see for example
-        res/layout/dropdown_custom_layout.xml
-  
  You can also provide optional OnTapListener and/or OnSwipeListener to handle cases when 
  some non-trivial action is needed when user Taps or Swipes notification panel. Default 
  actions for Tap and Swipe are to immediately hide notification.
 
 
+ EXAMPLE APP:
+
+JoynmeNotificationDemo is simple Android Application to show various possible uses of the 
+Joynme Dropdown Notification package.
+
+NotificationHelper class simplifies usage of NotificationViewFactory methods by defining  
+application-specific durations and layouts for four notification type: Note, Info, Warning, 
+and Error
+
+
+ BINARIES:
+
+There are two binary files at the top directory level that can be used directly:
+
+ JoynMe-Notifications/joynme-notifications-1.1.0.jar - compiled library
+ JoynMe-Notifications/JoynMe-Notifications-1.1.0.apk - demo application
+ 
+ 
  CREDITS:
  
  To support animation in Android releases prior to 3.0 (Version 11) JoynmeNotifications
